@@ -30,3 +30,17 @@ Route::resource('admin/activitylogs', 'Admin\ActivityLogsController')->only([
 Route::resource('admin/settings', 'Admin\SettingsController');
 Route::get('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@getGenerator']);
 Route::post('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@postGenerator']);
+
+/* ---------------------------- */
+Route::get('/articles', 'PostsController@index');
+Route::get('/articles/{post_name}', 'PostsController@show');
+
+Route::get('/contact', 'ContactController@index');
+Route::post('/contact', 'ContactController@store');
+Route::get('/contact/confirm', 'ContactController@confirm');
+Route::get('/contacts', 'ContactController@contacts')->middleware('auth');
+
+Route::resource('admin/articles', 'PostsAdminController')->middleware('auth');
+
+Route::get('/users', 'UserController@index')->middleware('auth');
+Route::get('/users/{id}', 'UserController@show')->middleware('auth');
