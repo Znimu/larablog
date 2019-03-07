@@ -1,0 +1,144 @@
+body {
+    background-color: #ddeeff;
+}
+
+.navbar {
+    padding: 0;
+    border-top: 1px solid #f8f8f8;
+}
+.navbar-laravel {
+    box-shadow: 0 2px 4px rgba(0,0,0,.06);
+}
+
+.navbar-nav li {
+    padding: 0 10px;
+}
+
+.top-bar {
+    padding: 0;
+}
+
+.callout.large {
+    padding: 1rem;
+}
+.callout {
+    border: none;
+    border-top: 1px solid rgba(10,10,10,.25);
+    border-bottom: 1px solid rgba(10,10,10,.25);
+}
+
+.img-main {
+    width: 100%;
+}
+
+.container-main {
+    width: 90%;
+    max-width: 800px;
+    min-height: 100%;
+    background-color: white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+}
+
+main {
+    /*text-align: center;*/
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.comments-title {
+    text-indent: 20px;
+}
+
+.post-author {
+    
+}
+
+.post-date {
+    color: #ccc;
+    margin-top: -10px;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+.comment-date {
+    color: #ccc;
+    margin-top: -20px;
+}
+
+.no-comments {
+    text-indent: 20px;
+}
+
+.contact-form {
+    text-align: center;
+}
+.contact-btn {
+    padding: 4px 25px;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-group input, .form-group textarea {
+    margin: auto;
+}
+
+.form-check-input {
+    position: relative;
+}
+
+.contact-view, .post-comment, .post-main {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.contact-list {
+    text-align: center;
+}
+
+.post-main {
+    border-radius: 0 0 5px 5px;
+}
+
+.post-comment, .contact-view {
+    background-color: #f5faff;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, .1);
+}
+
+.contact-form input, .contact-form textarea {
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 500px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.contact-form input[type=submit] {
+    max-width: 200px;
+}
+
+.tab-admin {
+    margin: auto;
+    border-collapse: collapse;
+}
+.tab-admin td {
+    padding: 5px;
+    border: 1px solid #f0f0f0;
+}
+
+.form-edit, .form-delete {
+    text-align: center;
+}
+.form-delete a {
+    color: red;
+}
