@@ -44,17 +44,48 @@ class AuthServiceProvider extends ServiceProvider
         
         // Articles
         Gate::define('show-post', function ($user, $post) {
-            echo "Show-post : authorization - checking<br />";
+            echo "<strong>Show-post</strong> : authorization - checking<br />";
             foreach ($user->roles as $role) {
                 if ($role->name == 'admin') {
                     echo "Role : admin.<br />";
                     return true;
                 }
             }
+            echo "Role : author.<br />";
+            return $user->id == $post->author->id;
+        });
+        Gate::define('edit-post', function ($user, $post) {
+            echo "<strong>Edit-post</strong> : authorization - checking<br />";
+            foreach ($user->roles as $role) {
+                if ($role->name == 'admin') {
+                    echo "Role : admin.<br />";
+                    return true;
+                }
+            }
+            echo "Role : author.<br />";
             return $user->id == $post->author->id;
         });
         Gate::define('update-post', function ($user, $post) {
-            return $user->roles[0]->name == 'admin' || $user->id == $post->author->id;
+            echo "<strong>Update-post</strong> : authorization - checking<br />";
+            foreach ($user->roles as $role) {
+                if ($role->name == 'admin') {
+                    echo "Role : admin.<br />";
+                    return true;
+                }
+            }
+            echo "Role : author.<br />";
+            return $user->id == $post->author->id;
+        });
+        Gate::define('destroy-post', function ($user, $post) {
+            echo "<strong>Destroy-post</strong> : authorization - checking<br />";
+            foreach ($user->roles as $role) {
+                if ($role->name == 'admin') {
+                    echo "Role : admin.<br />";
+                    return true;
+                }
+            }
+            echo "Role : author.<br />";
+            return $user->id == $post->author->id;
         });
     }
 

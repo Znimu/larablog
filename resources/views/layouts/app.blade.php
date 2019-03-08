@@ -34,6 +34,7 @@
                         <li><a href="/articles">Articles</a></li>
                         <li><a href="/contact">Contact</a></li>
                         <li><a href="/admin/articles">Admin Articles</a></li>
+                        <li><a href="/admin/users">Admin Users</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -49,14 +50,14 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/users/{{ Auth::user()->id }}">
+                                    <a class="dropdown-item" href="/admin/users/{{ Auth::user()->id }}">
                                         <i class="far fa-edit"></i> Profile
                                     </a>
 
                                     <a class="dropdown-item" href="{{ url('/logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                        <i class="fas fa-power-off"></i> Logout
                                     </a>
 
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">

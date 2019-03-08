@@ -53,10 +53,10 @@ class PostsAdminController extends Controller
         $post = \App\Post::where('id', $id)->get()->first();
 
         if (Gate::allows('show-post', $post)) {
-            echo "Show : ok";
+            echo "OK";
         }
         else {
-            echo "Show : ko";
+            echo "KO";
         }
     }
 
@@ -70,11 +70,11 @@ class PostsAdminController extends Controller
     {
         $post = \App\Post::where('id', $id)->get()->first();
 
-        if (Gate::allows('display-post', $post)) {
-            echo "Edit : ok";
+        if (Gate::allows('edit-post', $post)) {
+            echo "OK";
         }
         else {
-            echo "Edit : ko";
+            echo "KO";
         }
     }
 
@@ -89,11 +89,11 @@ class PostsAdminController extends Controller
     {
         $post = \App\Post::where('id', $id)->get()->first();
 
-        if (Gate::allows('display-post', $post)) {
-            echo "Update : ok";
+        if (Gate::allows('update-post', $post)) {
+            echo "OK";
         }
         else {
-            echo "Update : ko";
+            echo "KO";
         }
     }
 
@@ -107,11 +107,11 @@ class PostsAdminController extends Controller
     {
         $post = \App\Post::where('id', $id)->get()->first();
 
-        if (Gate::allows('display-post', $post)) {
-            echo "Destroy : ok";
+        if (Gate::allows('destroy-post', $post)) {
+            echo "OK";
         }
         else {
-            echo "Destroy : ko";
+            echo "KO";
         }
     }
 }
