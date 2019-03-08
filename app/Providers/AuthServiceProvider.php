@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Permission;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -40,6 +41,21 @@ class AuthServiceProvider extends ServiceProvider
         } catch (\Illuminate\Database\QueryException $ex) {
             return;
         }
+        
+        // Articles
+        Gate::define('show-post', function ($user, $post) {
+            echo "Show-post : authorization - checking<br />";
+            foreach ($user->roles as $role) {
+                if ($role->name == 'admin') {
+                    echo "Role : admin.<br />";
+                    return true;
+                }
+            }
+            return $user->id == $post->author->id;
+        });
+        Gate::define('update-post', function ($user, $post) {
+            return $user->roles[0]->name == 'admin' || $user->id == $post->author->id;
+        });
     }
 
     /**

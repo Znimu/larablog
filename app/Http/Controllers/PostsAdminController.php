@@ -16,7 +16,7 @@ class PostsAdminController extends Controller
     {
         $posts = \App\Post::where('post_type', 'article')->get()->sortByDesc('id');
 
-        return view('admin.articles', [
+        return view('admin.articles.articles', [
             'posts' => $posts
         ]);
     }
@@ -52,11 +52,11 @@ class PostsAdminController extends Controller
     {
         $post = \App\Post::where('id', $id)->get()->first();
 
-        if (Gate::allows('display-post', $post)) {
-            echo "ok";
+        if (Gate::allows('show-post', $post)) {
+            echo "Show : ok";
         }
         else {
-            echo "ko";
+            echo "Show : ko";
         }
     }
 
@@ -71,10 +71,10 @@ class PostsAdminController extends Controller
         $post = \App\Post::where('id', $id)->get()->first();
 
         if (Gate::allows('display-post', $post)) {
-            echo "ok";
+            echo "Edit : ok";
         }
         else {
-            echo "ko";
+            echo "Edit : ko";
         }
     }
 
@@ -90,10 +90,10 @@ class PostsAdminController extends Controller
         $post = \App\Post::where('id', $id)->get()->first();
 
         if (Gate::allows('display-post', $post)) {
-            echo "ok";
+            echo "Update : ok";
         }
         else {
-            echo "ko";
+            echo "Update : ko";
         }
     }
 
@@ -108,10 +108,10 @@ class PostsAdminController extends Controller
         $post = \App\Post::where('id', $id)->get()->first();
 
         if (Gate::allows('display-post', $post)) {
-            echo "ok";
+            echo "Destroy : ok";
         }
         else {
-            echo "ko";
+            echo "Destroy : ko";
         }
     }
 }

@@ -25,5 +25,14 @@ class UsersTableSeeder extends Seeder
         });
         
         factory(App\Comment::class, 10)->create();
+
+        \App\Role::create([
+            'name' => 'admin',
+            'label' => 'Administrator'
+        ]);
+        \App\Role::create([
+            'name' => 'author',
+            'label' => 'Author'
+        ]);
     }
 }
