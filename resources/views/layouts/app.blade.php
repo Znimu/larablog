@@ -33,6 +33,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li><a href="/articles">Articles</a></li>
                         <li><a href="/contact">Contact</a></li>
+                        <li><a href="/images/new">Images</a></li>
                         <li><a href="/admin/articles">Admin Articles</a></li>
                         <li><a href="/admin/users">Admin Users</a></li>
                     </ul>

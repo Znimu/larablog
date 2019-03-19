@@ -18,8 +18,8 @@ class ImageController extends Controller
     public function store(ImagesRequest $request, ImagesRepositoryInterface $imagesRepository)
     {
         if ($request->hasFile('img1')) {
-            $imagesRepository->save($request->img1);
-            event(new NewImage);
+            $img_resu = $imagesRepository->save($request->img1);
+            event(new NewImage($img_resu));
 
             return view('image_uploaded');
         }

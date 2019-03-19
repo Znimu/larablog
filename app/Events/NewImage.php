@@ -14,14 +14,16 @@ class NewImage
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $image;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($image)
     {
-        //
+        $this->image = $image;
     }
 
     /**

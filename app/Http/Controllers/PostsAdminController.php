@@ -95,7 +95,6 @@ class PostsAdminController extends Controller
 
         if (Gate::allows('update-post', $post)) {
             echo "OK";
-            // dd($request);
             if ($post->post_status != "published" && $request->post_status == "published") {
                 echo "<br /><br />New publish !";
             }
@@ -103,7 +102,7 @@ class PostsAdminController extends Controller
             $post->save();
         }
         else {
-            echo "KO";
+            echo "You are not authorized to update this post.";
         }
     }
 
