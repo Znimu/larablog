@@ -69,12 +69,16 @@ class PostsAdminController extends Controller
     public function edit($id)
     {
         $post = \App\Post::where('id', $id)->get()->first();
+        $authors = \App\User::all();
 
         if (Gate::allows('edit-post', $post)) {
-            echo "OK";
+            return view('admin.articles.article-edit', [
+                'post' => $post,
+                'authors' => $authors
+            ]);
         }
         else {
-            echo "KO";
+            echo "You are not authorized to edit this post.";
         }
     }
 
@@ -91,6 +95,12 @@ class PostsAdminController extends Controller
 
         if (Gate::allows('update-post', $post)) {
             echo "OK";
+            // dd($request);
+            if ($post->post_status != "published" && $request->post_status == "published") {
+                echo "<br /><br />New publish !";
+            }
+            $post->post_status = $request->post_status;
+            $post->save();
         }
         else {
             echo "KO";

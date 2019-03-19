@@ -44,3 +44,6 @@ Route::resource('admin/articles', 'PostsAdminController')->middleware('auth');
 
 Route::get('/users', 'UserController@index')->middleware('auth');
 Route::get('/users/{id}', 'UserController@show')->middleware('auth');
+
+Route::get('/images/new', 'ImageController@new');
+Route::post('/images/store', 'ImageController@store');
