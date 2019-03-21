@@ -28,6 +28,7 @@ Route::resource('admin/activitylogs', 'Admin\ActivityLogsController')->only([
     'index', 'show', 'destroy'
 ]);
 Route::resource('admin/settings', 'Admin\SettingsController');
+
 Route::get('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@getGenerator']);
 Route::post('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@postGenerator']);
 
@@ -47,3 +48,7 @@ Route::get('/users/{id}', 'UserController@show')->middleware('auth');
 
 Route::get('/images/new', 'ImageController@new');
 Route::post('/images/store', 'ImageController@store');
+
+// Socialite
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
